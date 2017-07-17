@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>microservices</groupId>
+    <groupId>mx.com.zeroone.microservices</groupId>
     <artifactId>service-registration-and-discovery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
