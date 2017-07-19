@@ -3,6 +3,8 @@
  */
 package users.service.impl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +26,9 @@ public class UserServiceImpl implements UserService {
      * @see users.service.UserService#create(users.model.UserTO)
      */
     @Override
-    public boolean create(UserTO to) {
-        // TODO Auto-generated method stub
-        return false;
+    public String create(UserTO to) {
+    	String mensaje = userDAO.create(to); 
+    	return mensaje;
     }
 
     /* (non-Javadoc)
@@ -55,5 +57,13 @@ public class UserServiceImpl implements UserService {
         // TODO Auto-generated method stub
         return false;
     }
+
+	@Override
+	public ArrayList<UserTO> all() {
+		ArrayList<UserTO> ArrayUserTo = new ArrayList<UserTO>();
+		ArrayUserTo = userDAO.all();
+		
+		return ArrayUserTo;
+	}
 
 }

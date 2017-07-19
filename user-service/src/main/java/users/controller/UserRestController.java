@@ -1,5 +1,7 @@
 package users.controller;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,39 @@ public class UserRestController {
         LOGGER.info("user : {}", userTO);
 
         return userTO;
+
+    }
+    
+    @RequestMapping(value="/create/{name}/{email}", method = RequestMethod.GET)
+    public String create(@PathVariable int id, @PathVariable String name, @PathVariable String email){
+
+        LOGGER.info("id : {}", id);
+        LOGGER.info("name : {}", name);
+        LOGGER.info("email : {}", email);
+        
+        UserTO to = new UserTO();
+        to.setId(id);
+        to.setName(name);
+        to.setEmail(email);
+        
+        String mensaje = userService.create(to);
+
+        LOGGER.info("Aviso : {}", mensaje);
+
+        return mensaje;
+
+    }
+    
+    @RequestMapping(value="/all", method = RequestMethod.GET)
+    public ArrayList<UserTO> selectAll(){
+        
+        ArrayList<UserTO> ArrayUserTo = new ArrayList<UserTO>();
+        
+        ArrayUserTo = userService.all();
+
+        LOGGER.info("Usuarios : {}", ArrayUserTo);
+
+        return ArrayUserTo;
 
     }
 

@@ -3,6 +3,8 @@
  */
 package users.dao;
 
+import java.util.ArrayList;
+
 import users.model.UserTO;
 
 /**
@@ -11,12 +13,14 @@ import users.model.UserTO;
  */
 public interface UserDAO {
 
-    boolean create(UserTO to);
+    String create(UserTO to);
 
     UserTO read(int id);
 
     boolean update(UserTO to);
 
     boolean delete(String id);
+    
+    ArrayList<UserTO> all();
 
 }
