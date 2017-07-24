@@ -1,6 +1,6 @@
 package users.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,15 +57,13 @@ public class UserRestController {
     }
     
     @RequestMapping(value="/all", method = RequestMethod.GET)
-    public ArrayList<UserTO> selectAll(){
+    public List<UserTO> selectAll(){
         
-        ArrayList<UserTO> ArrayUserTo = new ArrayList<UserTO>();
-        
-        ArrayUserTo = userService.all();
+        List<UserTO> ListUserTo = userService.all();
 
-        LOGGER.info("Usuarios : {}", ArrayUserTo);
+        LOGGER.info("Usuarios : {}", ListUserTo);
 
-        return ArrayUserTo;
+        return ListUserTo;
 
     }
 

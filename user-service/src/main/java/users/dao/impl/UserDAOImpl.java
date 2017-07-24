@@ -3,7 +3,6 @@
  */
 package users.dao.impl;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,8 @@ import users.model.UserTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;  
 
 /**
@@ -44,16 +43,8 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public String create(UserTO to) {
     	String mensaje = " ";
-           // Connection con = null; 
-            //Statement stmt = null; 
-            //int result = 0; 
             try { 
-               /*Class.forName("org.hsqldb.jdbc.JDBCDriver"); 
-               con = DriverManager.getConnection( "jdbc:hsqldb:mem:dataSource", "sa", ""); 
-               stmt = con.createStatement(); 
-               result = stmt.executeUpdate("INSERT INTO users VALUES (5, 'Jeshua Cabrera', 'jeshua.cabrera@planetmedia.com.mx', NOW())"); 
-               con.commit(); */
-            	String query = "INSERT INTO users VALUES (:id, :name, :email)";
+              String query = "INSERT INTO users VALUES (:id, :name, :email)";
             	Map<String, Object> paramMap = new HashMap<String, Object>();
             	paramMap.put("id",to.getId());
             	paramMap.put("name",to.getName());
@@ -61,16 +52,11 @@ public class UserDAOImpl implements UserDAO {
             	jdbcTemplate.update(query, paramMap);
             	
             }catch (Exception e) { 
-               //e.printStackTrace(System.out); 
                LOGGER.error("error al insertar", e);
                mensaje = "error al insertar";
             }
-            	
-           // System.out.println(result + " filas afectadas"); 
             mensaje = "datos insertados correctamente"; 
 
-
-        //return userTO;
         return mensaje;
     }
 
@@ -125,12 +111,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
 	@Override
-	public ArrayList<UserTO> all() {
+	public List<UserTO> all() {
 		final StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("SELECT id, name, email ");
         sqlBuilder.append(" FROM users");
         
-		return (ArrayList<UserTO>) this.jdbcTemplate.query(sqlBuilder.toString(), new RowMapper<UserTO>() {
+		return (List<UserTO>) this.jdbcTemplate.query(sqlBuilder.toString(), new RowMapper<UserTO>() {
 	        
 	        public UserTO mapRow(ResultSet rs, int i) throws SQLException {
 	        	UserTO p = new UserTO();

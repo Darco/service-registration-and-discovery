@@ -3,7 +3,7 @@
  */
 package users.service.impl;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,11 +59,10 @@ public class UserServiceImpl implements UserService {
     }
 
 	@Override
-	public ArrayList<UserTO> all() {
-		ArrayList<UserTO> ArrayUserTo = new ArrayList<UserTO>();
-		ArrayUserTo = userDAO.all();
+	public List<UserTO> all() {
+		List<UserTO> ListUserTo = userDAO.all();
 		
-		return ArrayUserTo;
+		return ListUserTo;
 	}
 
 }

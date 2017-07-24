@@ -3,7 +3,7 @@
  */
 package users.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import users.model.UserTO;
 
@@ -21,6 +21,6 @@ public interface UserDAO {
 
     boolean delete(String id);
     
-    ArrayList<UserTO> all();
+    List<UserTO> all();
 
 }

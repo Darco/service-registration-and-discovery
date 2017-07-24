@@ -3,7 +3,7 @@
  */
 package users.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import users.model.UserTO;
 
@@ -21,7 +21,7 @@ public interface UserService {
 
     boolean delete(String id);
     
-    ArrayList<UserTO> all();
+    List<UserTO> all();
 
 
 }
