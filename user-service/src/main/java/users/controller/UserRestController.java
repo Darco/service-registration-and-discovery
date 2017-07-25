@@ -35,19 +35,19 @@ public class UserRestController {
         return userTO;
 
     }
-    
+
     @RequestMapping(value="/create/{name}/{email}", method = RequestMethod.GET)
     public String create(@PathVariable int id, @PathVariable String name, @PathVariable String email){
 
         LOGGER.info("id : {}", id);
         LOGGER.info("name : {}", name);
         LOGGER.info("email : {}", email);
-        
+
         UserTO to = new UserTO();
         to.setId(id);
         to.setName(name);
         to.setEmail(email);
-        
+
         String mensaje = userService.create(to);
 
         LOGGER.info("Aviso : {}", mensaje);
@@ -55,15 +55,15 @@ public class UserRestController {
         return mensaje;
 
     }
-    
+
     @RequestMapping(value="/all", method = RequestMethod.GET)
     public List<UserTO> selectAll(){
-        
-        List<UserTO> ListUserTo = userService.all();
 
-        LOGGER.info("Usuarios : {}", ListUserTo);
+        List<UserTO> list = userService.all();
 
-        return ListUserTo;
+        LOGGER.info("Usuarios : {}", list);
+
+        return list;
 
     }
 
