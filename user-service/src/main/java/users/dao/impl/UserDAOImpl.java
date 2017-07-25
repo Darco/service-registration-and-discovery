@@ -23,7 +23,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;  
+import java.util.Map;
 
 /**
  * @author David Ruiz C
@@ -42,20 +42,20 @@ public class UserDAOImpl implements UserDAO {
      */
     @Override
     public String create(UserTO to) {
-    	String mensaje = " ";
-            try { 
+    	String mensaje = null;
+            try {
               String query = "INSERT INTO users VALUES (:id, :name, :email)";
             	Map<String, Object> paramMap = new HashMap<String, Object>();
             	paramMap.put("id",to.getId());
             	paramMap.put("name",to.getName());
             	paramMap.put("email",to.getEmail());
             	jdbcTemplate.update(query, paramMap);
-            	
-            }catch (Exception e) { 
+            	mensaje = "datos insertados correctamente";
+            }catch (Exception e) {
                LOGGER.error("error al insertar", e);
                mensaje = "error al insertar";
             }
-            mensaje = "datos insertados correctamente"; 
+            LOGGER.info(mensaje);
 
         return mensaje;
     }
@@ -115,9 +115,9 @@ public class UserDAOImpl implements UserDAO {
 		final StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("SELECT id, name, email ");
         sqlBuilder.append(" FROM users");
-        
-		return (List<UserTO>) this.jdbcTemplate.query(sqlBuilder.toString(), new RowMapper<UserTO>() {
-	        
+
+		return this.jdbcTemplate.query(sqlBuilder.toString(), new RowMapper<UserTO>() {
+
 	        public UserTO mapRow(ResultSet rs, int i) throws SQLException {
 	        	UserTO p = new UserTO();
 	            p.setId(rs.getInt("id"));
