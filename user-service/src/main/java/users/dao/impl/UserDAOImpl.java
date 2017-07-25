@@ -45,7 +45,7 @@ public class UserDAOImpl implements UserDAO {
     	String mensaje = null;
             try {
               String query = "INSERT INTO users VALUES (:id, :name, :email)";
-            	Map<String, Object> paramMap = new HashMap<String, Object>();
+            	Map<String, Object> paramMap = new HashMap<>();
             	paramMap.put("id",to.getId());
             	paramMap.put("name",to.getName());
             	paramMap.put("email",to.getEmail());
@@ -73,12 +73,14 @@ public class UserDAOImpl implements UserDAO {
             sqlBuilder.append("  FROM users ");
             sqlBuilder.append(" WHERE id = :id ");
 
-            LOGGER.info("[sql : {}, id : {}]", sqlBuilder.toString(), id);
+            final String sql = sqlBuilder.toString();
+
+            LOGGER.info("[sql : {}, id : {}]", sql, id);
 
             final SqlParameterSource source = new MapSqlParameterSource()
                     .addValue("id", id);
 
-            userTO = jdbcTemplate.queryForObject(sqlBuilder.toString(), source, new UserRowMapper());
+            userTO = jdbcTemplate.queryForObject(sql, source, new UserRowMapper());
 
             LOGGER.info("user : {}", userTO);
         } catch (EmptyResultDataAccessException e) {
