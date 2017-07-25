@@ -31,6 +31,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>5.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<properties>
