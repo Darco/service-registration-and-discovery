@@ -24,203 +24,41 @@
 		<jackson.version>2.8.5</jackson.version>
 		<jackson.version>2.4.5</jackson.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-        <!--  
-		<dependency>
-   			<groupId>org.springframework</groupId>
-    		<artifactId>spring-context</artifactId>
-    		<version>4.0.6.RELEASE</version>
-		</dependency>
-        -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
-		<!--  
-		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-context-support</artifactId>
-    		<version>4.0.5.RELEASE</version>
-		</dependency>
-        -->
-        
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-tx</artifactId>
-    		<version>4.0.5.RELEASE</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
-		<dependency>
-    		<groupId>org.springframework.security</groupId>
-    		<artifactId>spring-security-core</artifactId>
-    		<version>4.0.4.RELEASE</version>
-		</dependency>    
-        
-        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
-		<dependency>
-    		<groupId>javax.inject</groupId>
-    		<artifactId>javax.inject</artifactId>
-    		<version>1</version>
-		</dependency>
-        
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- Spring Web -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-web</artifactId>
-    		<version>4.0.2.RELEASE</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-instrument-tomcat</artifactId>
-			<version>4.1.5.RELEASE</version>
-		</dependency>
-		
-        <!-- Spring JDBC -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
+		</dependency> -->
+
 		<!-- HyperSQL DB -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>${hsqldb.version}</version>
 		</dependency>
-		
-		<!--  connection polls -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-dbcp2</artifactId>
-			<version>${dbcp.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${jcl.slf4j.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-
-		<!-- jstl -->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<version>2.10.4</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit-dep</artifactId>
-			<version>4.10</version>
-		</dependency>
-		
-		<!-- Jackson JSON Processor -->
-		<dependency>
-    		<groupId>com.fasterxml.jackson.core</groupId>
-    		<artifactId>jackson-databind</artifactId>
-    		<version>2.5.0</version>
-		</dependency>
-    	
-    	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-		<dependency>
-    		<groupId>com.fasterxml.jackson.core</groupId>
-    		<artifactId>jackson-core</artifactId>
-    		<version>2.5.0</version>
-		</dependency>
-    	
-    	<dependency>
-    		<groupId>com.fasterxml.jackson.core</groupId>
-    		<artifactId>jackson-annotations</artifactId>
-    		<version>2.5.0</version>
-		</dependency>
-   
-        <dependency>
-    		<groupId>org.codehaus.jackson</groupId>
-    		<artifactId>jackson-mapper-asl</artifactId>
-    		<version>1.9.13</version>
-		</dependency>
-		
-		<dependency>
-    		<groupId>com.fasterxml.jackson.datatype</groupId>
-    		<artifactId>jackson-datatype-jsr310</artifactId>
-    		<version>2.5.0</version>
-		</dependency>
-    	
-    	<dependency>
-    		<groupId>com.fasterxml.jackson.datatype</groupId>
-    		<artifactId>jackson-datatype-joda</artifactId>
-    		<version>2.5.0</version>
-		</dependency>
-    	
-    	<dependency>
-    		<groupId>com.fasterxml.jackson.dataformat</groupId>
-				<artifactId>jackson-dataformat-xml</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.dataformat</groupId>
-				<artifactId>jackson-dataformat-yaml</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
 	</dependencies>
 
 		<build>

@@ -1,7 +1,7 @@
 --DROP TABLE users IF EXISTS;
 
 CREATE TABLE users (
-  id         NUMBER PRIMARY KEY,
+  id   INTEGER PRIMARY KEY,
   name VARCHAR(30),
   apaterno  VARCHAR(50)
 );

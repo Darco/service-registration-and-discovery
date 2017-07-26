@@ -3,10 +3,12 @@ package photos;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
 @EnableEurekaClient
+@ComponentScan(basePackages={"photos","com.gio.user"})
 public class Application {
 
 	public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class Application {
     }
 
 
-    
+
     /*
     private static void deleteUser() {
     	final String REST_SERVICE_URI = "http://localhost:8080/SpringBootRestApi/delete/{id}";
@@ -24,9 +26,9 @@ public class Application {
         restTemplate.exchange(REST_SERVICE_URI+"/user/3", HttpMethod.DELETE, request, User.class);
     }
     */
-    
+
     /*REST Client POST-> Crea un Usuario  ...*/
-    /*   Otra Forma de crear nuevo usuario 
+    /*   Otra Forma de crear nuevo usuario
     private static void createUser() {
     	final String REST_SERVICE_URI = "http://localhost:8080/SpringBootRestApi/createUser";
         System.out.println("Testing create User API----------");
@@ -35,8 +37,8 @@ public class Application {
         URI uri = restTemplate.postForLocation(REST_SERVICE_URI, user, User.class);
         System.out.println("Location : "+uri.toASCIIString());
     }
-    */   
-    
+    */
+
     /*  OTRA FORMA DE ACTUALIZAR USUARIO
     private static void updateUser() {
     	final String REST_SERVICE_URI = "http://localhost:8080/SpringBootRestApi/update/{id}";
@@ -45,18 +47,18 @@ public class Application {
         User user  = new User(2,"Juana", "Fuentes");
         restTemplate.put(REST_SERVICE_URI, user);
         System.out.println(user);
-    } 
+    }
     */
-    
+
     /*REST Client -> Extrae todos los usarios*/
     /*
     private static void getAllUsers()
     {
         final String uri = "http://localhost:8080/springrestexample/users.json";
-         
+
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
-         
+
         System.out.println(result);
     }
     */
