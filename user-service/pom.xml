@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>mx.com.zeroone.microservices</groupId>
+		<artifactId>service-registration-and-discovery</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<name>service-registration-and-discovery:user-service</name>
+
+	<artifactId>user-service</artifactId>
+	<properties>
+		<start-class>users.Application</start-class>
+		<hsqldb.version>2.3.2</hsqldb.version>
+	</properties>
+
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+		  	<groupId>org.codehaus.sonar</groupId>
+		  	<artifactId>sonar-maven-plugin</artifactId>
+	  		<version>5.1</version>
+		</dependency>
+	</dependencies>
+	<groupId>mx.com.zeroone.microservices</groupId>
+</project>
