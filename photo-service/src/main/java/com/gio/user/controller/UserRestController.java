@@ -39,7 +39,7 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve Single User------------------
-	@RequestMapping(value = "/single/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/single/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
 		LOGGER.info("Fetching User with id {}", id);
 		User user = userService.getUserById(id);
