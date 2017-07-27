@@ -19,8 +19,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
-import com.mongodb.WriteResult;
-
 import bookmarks.dao.BookMarkRepository;
 import bookmarks.model.BookmarkTO;
 
