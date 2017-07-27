@@ -39,15 +39,15 @@ public class UserRestController {
 	}
 
 	// -------------------Retrieve Single User------------------
-	@RequestMapping(value = "/single/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/single/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
 		LOGGER.info("Fetching User with id {}", id);
-		User user = userService.findById(id);
+		User user = userService.getUserById(id);
 		if (user == null) {
 			LOGGER.error("User with id {} not found.", id);
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(new User(), HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<User>(HttpStatus.OK);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
 	// -------------------Create User-------------------------
@@ -82,21 +82,21 @@ public class UserRestController {
 		userService.update(userId);
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
-	
+
 	//------------------- Delete a User ------------------------
 	@RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteUser(@PathVariable("id") Integer id){
 		LOGGER.info("Fetching & Deleting User with id {}", id);
 		User user = userService.findById(id);
-		
+
 		if(user == null){
 			 LOGGER.error("Unable to delete. User with id {} not found.", id);
 			 return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
-		
+
 		userService.deleteUser(id);
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
-	
-	
+
+
 }
