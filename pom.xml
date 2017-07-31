@@ -60,6 +60,7 @@
 		<java.version>1.8</java.version>
 		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
 		<spring-cloud.version>1.0.0.BUILD-SNAPSHOT</spring-cloud.version>
+		<nexus.server>10.165.61.131:8081/nexus</nexus.server>
 	</properties>
 
 
@@ -93,11 +94,11 @@
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
-			<url>http://10.165.61.131:8081/nexus/repository/maven-releases/</url>
+			<url>http://${nexus.server}/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<url>http://10.165.61.131:8081/nexus/repository/maven-snapshots/</url>
+			<url>http://${nexus.server}/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
