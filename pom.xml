@@ -3,10 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>1.0.0.BUILD-SNAPSHOT</version>
-		<relativePath />
+
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+
 	</parent>
 
 	<groupId>mx.com.zeroone.microservices</groupId>
@@ -80,17 +82,6 @@
 		</repository>
 	</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-libs-milestones</id>
-			<url>http://repo.spring.io/libs-milestone-local</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-libs-release</id>
-			<url>http://repo.spring.io/libs-release-local</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
@@ -101,5 +92,28 @@
 			<url>http://${nexus.server}/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+	</dependencies>
 
 </project>
