@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ import gems.model.GemTO;
 import gems.service.GemService;
 
 @RestController
-@RequestMapping("/gem/{id}")
+@RequestMapping("/gem")
 public class GemRestController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GemRestController.class);
@@ -23,8 +24,8 @@ public class GemRestController {
     private GemService gemService;
 
 
-    @RequestMapping(value="/read", method = RequestMethod.GET)
-    public GemTO read(@PathVariable int id){
+    @RequestMapping(value="/read/{id}", method = RequestMethod.GET)
+    public GemTO read(@PathVariable long id){
 
         LOGGER.info("id : {}", id);
 
@@ -36,19 +37,10 @@ public class GemRestController {
 
     }
 
-    @RequestMapping(value="/create/{name}/{email}", method = RequestMethod.GET)
-    public String create(@PathVariable int id, @PathVariable String name, @PathVariable String email){
+    @RequestMapping(value="/create", method = RequestMethod.POST)
+    public String create(@RequestBody GemTO gemTO){
 
-        LOGGER.info("id : {}", id);
-        LOGGER.info("name : {}", name);
-        LOGGER.info("email : {}", email);
-
-        GemTO to = new GemTO();
-        to.setId(id);
-        to.setName(name);
-        to.setEmail(email);
-
-        String mensaje = gemService.create(to);
+        String mensaje = gemService.create(gemTO);
 
         LOGGER.info("Aviso : {}", mensaje);
 

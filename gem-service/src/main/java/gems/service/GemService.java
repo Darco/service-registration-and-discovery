@@ -15,11 +15,11 @@ public interface GemService {
 
     String create(GemTO to);
 
-    GemTO read(int id);
+    GemTO read(long id);
 
     boolean update(GemTO to);
 
-    boolean delete(String id);
+    boolean delete(long id);
 
     List<GemTO> all();
 
