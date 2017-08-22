@@ -1,0 +1,15 @@
+---
+applications:
+- name: gem-service
+  memory: 512M
+  instances: 1
+  host: gem-service-${random-word}
+  domain: cfapps.io
+  path: target/gem-service.jar
+  services:
+      - eureka-service
+      - gem-service-postgresql
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"
